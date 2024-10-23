@@ -1,19 +1,22 @@
-body {
-    font-family: Garamond, serif;
-    margin: 0;
-    padding: 0;
-}
-
 header {
+    font-family: Garamond, serif;
+
     display: flex;
     justify-content: center;
     align-items: center;  
     position: relative;
+
     background-color: #ffffff;
     color: #4f4f4f;
-    padding: 20px 0;
-    height: 80px;
+
+    margin: 0;
+    padding: 25px 0;
+    height: 40px;
     
+}
+
+header h1 a:hover {
+    color: #3f58ff;
 }
 
 header h1 a {
@@ -22,7 +25,6 @@ header h1 a {
     top: 50%;
     transform: translateY(-50%);
     color: #4f4f4f;
-    margin: 0;
     padding-left: 30px;
     font-size: 1.8em;
     text-decoration: none;
@@ -31,49 +33,56 @@ header h1 a {
 nav {
     display: flex;
     gap: 30px;   
-    margin-top: 5px;
+    font-size: 1.5em;
 }
 
 nav a {
     color: #4f4f4f;
     text-decoration: none;
-    font-size: 1em;
 }
 
 nav a:hover {
     color: #3f58ff;
 }
 
-header h1 a:hover {
-    color: #3f58ff;
+
+h2 {
+    color: #4f4f4f;
+    display: flex;
+    justify-content: center;
 }
 
-section {
-    padding: 40px 20px;
+
+p {
+    display: flex;
+    color: #4f4f4f;
+    background-color: #e3e3e3;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 20px 20px;
+    justify-content: center;
+    align-items: center;  
+    position: relative;
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 900px) {
     header {
         flex-direction: column;
         align-items: flex-start;
         height: auto;
-        padding: 10px 0;
+        padding: 25px 0;
     }
 
     header h1 {
         position: static;
-        padding-left: 0;
-        margin-bottom: 5px;
-        font-size: 1.5em;
     }
 
     nav {
-        margin-top: 0;
         justify-content: center;
         width: 100%;
-    }
-
-    nav a {
-        margin: 5px 10px;
+        margin-top: 10px;
+        padding-top: 40px;
+        /* fix later */
     }
 }
