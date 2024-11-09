@@ -2,28 +2,27 @@ class CustomHeader extends HTMLElement {
     constructor() {
         super();
 
-        // Attach a shadow DOM to the element
         const shadow = this.attachShadow({ mode: 'open' });
 
-        // Create a template for the header
         const template = document.createElement('template');
         template.innerHTML = `
 
       <header>
-        <h1><a href="index.html">lilli garden</a></h1>
-    
+            <div class="header-container">
+            <img src="owl.jpg" alt="owl" class="logo">
+            <h1><a href="index.html">lilli garden</a></h1>
+        </div>
+
         <nav>
             <a href="about.html">about</a>
             <a href="work.html">work</a>
-            <a href="contact.html">contact</a>
+            <a href="guitar lesson.html">guitar lesson</a>
         </nav>
     </header>
         `;
 
-           // Append the template content to the shadow DOM
            shadow.appendChild(template.content.cloneNode(true));
 
-           // Fetch the external CSS file and apply it to the shadow DOM
            this.loadStyles();
        }
    
@@ -38,5 +37,4 @@ class CustomHeader extends HTMLElement {
        }
    }
 
-// Define the new custom element
 customElements.define('custom-header', CustomHeader);
