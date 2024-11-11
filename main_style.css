@@ -76,6 +76,8 @@ p {
 img{
     margin: 0 auto;
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -85,6 +87,12 @@ img{
         align-items: flex-start;
         height: auto;
         padding: 25px 0px 0px 0px;
+    }
+
+    header h1 a {
+        color: #4f4f4f;
+        font-size: 1.2em;
+        text-decoration: none;
     }
 
     header h1 {
