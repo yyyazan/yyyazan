@@ -32,8 +32,8 @@ function setTrackWidth() {
 // Call this function initially and on window resize
 setTrackWidth();
 window.addEventListener('resize', () => {
-  setTrackWidth();
   updateSlidesToShow();
+  setTrackWidth();
   updateCarousel();
 });
 
@@ -50,7 +50,7 @@ function updateCarousel() {
   }
   carouselTrack.style.transform = `translateX(-${translateX}px)`;
 
-  // Adjust container height based on tallest visible slide
+  // Adjust container height based on tallest visible slide (images/videos)
   let maxHeight = 0;
   for (let i = counter; i < counter + slidesToShow && i < slides.length; i++) {
     const slide = slides[i];
@@ -60,15 +60,33 @@ function updateCarousel() {
       if (mediaHeight > maxHeight) {
         maxHeight = mediaHeight;
       }
+
+      // Pause all videos
+      if (mediaElement.tagName.toLowerCase() === 'video') {
+        mediaElement.pause();
+        mediaElement.currentTime = 0;
+      }
     }
   }
-  carouselTrack.parentElement.style.height = `${maxHeight + 20}px`;
+
+  // Play videos in the current view
+  for (let i = counter; i < counter + slidesToShow && i < slides.length; i++) {
+    const slide = slides[i];
+    if (slide) {
+      const mediaElement = slide.querySelector('video');
+      if (mediaElement) {
+        mediaElement.play();
+      }
+    }
+  }
+
+  carouselTrack.parentElement.style.height = `${maxHeight + 20}px`; // 20px for padding
 }
 
 // Event listener for the next button
 nextBtn.addEventListener('click', () => {
   if (counter >= totalSlides - slidesToShow) {
-    counter = 0;
+    counter = 0; // Loop back to the first set of slides
   } else {
     counter++;
   }
@@ -79,7 +97,7 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
   if (counter <= 0) {
     counter = totalSlides - slidesToShow;
-    if (counter < 0) counter = 0;
+    if (counter < 0) counter = 0; // Ensure counter doesn't go negative
   } else {
     counter--;
   }

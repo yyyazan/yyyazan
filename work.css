@@ -76,3 +76,35 @@
     max-height: 100%;
     margin: 0 auto; 
 }
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .carousel-slide img,
+    .carousel-slide video {
+      max-height: 300px; /* Adjust max-height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .carousel-slide {
+      flex: 0 0 100%; /* Each slide takes full width */
+    }
+  
+    .carousel-slide img,
+    .carousel-slide video {
+      max-height: 200px; /* Adjust max-height for mobile devices */
+      width: 100%; /* Ensure media fits the slide */
+      height: auto;
+    }
+  
+    .carousel-button {
+      padding: 10px;
+      margin: 0 25px; /* Reduce margins for smaller screens */
+    }
+  }
+  
+  /* Optional: Center Media Vertically */
+  .carousel-track-container {
+    display: flex;
+    align-items: center; /* Vertically center media */
+  }
