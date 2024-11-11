@@ -37,9 +37,11 @@
   .carousel-slide img,
   .carousel-slide video {
     display: block;
-    width: 100%;
-    height: auto;
-    max-height: 300px;
+    width: 100%;     /* Ensure the image fits the width of the slide */
+    height: auto;    /* Automatically scale height to keep aspect ratio */
+    object-fit: cover;  /* Ensures the image fills the container without stretching */
+    max-width: 100%; /* Prevents overflow */
+    max-height: 100%;
   }
   
   /* Carousel Buttons */
