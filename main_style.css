@@ -13,7 +13,7 @@ header {
     padding: 25px 0;
     height: 40px;
     position: relative;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .header-container {
@@ -31,7 +31,7 @@ header {
 
 header h1 a {
     color: #4f4f4f;
-    font-size: 1.5em;
+    font-size: 1.7em;
     text-decoration: none;
 }
 
@@ -63,7 +63,8 @@ h2 {
 
 
 p {
-    display: flex;
+    margin: auto;
+    display: block;
     color: #4f4f4f;
     text-decoration: none;
     font-size: 1.5em;
@@ -71,13 +72,19 @@ p {
     justify-content: center;
     align-items: center;  
     position: relative;
+
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
+    
 }
 
 img{
     margin: 0 auto;
     display: block;
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
 }
 
 
