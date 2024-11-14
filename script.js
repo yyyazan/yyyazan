@@ -34,9 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function initCarousel() {
     cloneSlides();
     updateSlidePositions();
-    scrollToIndex(currentIndex, 'auto');
+    window.addEventListener('load', () => {
+      scrollToIndex(currentIndex, 'auto');
+    });
     attachEventListeners();
   }
+  
 
   // Update slide positions (needed to calculate offsets correctly)
   function updateSlidePositions() {
@@ -82,24 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Attach event listeners
   function attachEventListeners() {
     nextButton.addEventListener('click', () => {
-      if (isTransitioning) return;
-      isTransitioning = true;
       currentIndex++;
       scrollToIndex(currentIndex);
       setTimeout(() => {
         handleInfiniteScroll();
-        isTransitioning = false;
       }, 500);
     });
 
     prevButton.addEventListener('click', () => {
-      if (isTransitioning) return;
-      isTransitioning = true;
       currentIndex--;
       scrollToIndex(currentIndex);
       setTimeout(() => {
         handleInfiniteScroll();
-        isTransitioning = false;
       }, 500);
     });
 
