@@ -1,112 +1,115 @@
 /* Reset default styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Carousel Container */
-  .carousel-container {
-    position: relative;
-    margin: 50px auto;
-    overflow: hidden;
-    background-color: #fff;
-  }
-  
-  /* Carousel Track Container */
-  .carousel-track-container {
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Carousel Track */
-  .carousel-track {
-    list-style-type: none;
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-  }
-  
-  /* Carousel Slides */
-  .carousel-slide {
-    flex: 0 0 auto;
-    margin: 0;
-  }
-  
-  .carousel-slide img,
-  .carousel-slide video {
-    display: block;
-    width: 100%;     /* Ensure the image fits the width of the slide */
-    height: auto;    /* Automatically scale height to keep aspect ratio */
-    object-fit: cover;  /* Ensures the image fills the container without stretching */
-    max-width: 100%; /* Prevents overflow */
-    max-height: 100%;
-  }
-  
-  /* Carousel Buttons */
-  .carousel-buttons-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .carousel-button {
-    background-color: rgba(255, 255, 255, 0.75);
-    border: none;
-    color: #000;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 10%;
-    margin: 0 50px;
-    transition: background-color 0.2s;
-  }
-  
-  .carousel-button:hover {
-    background-color: #3f59ffb7;
-  }
-  
-  /* Focus Styles for Accessibility */
-  .carousel-button:focus {
-    outline: 2px solid #fff;
-    transform: scale(0.90);
-  }
-  
-  img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0 auto; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
-    .carousel-slide img,
-    .carousel-slide video {
-      max-height: 300px; /* Adjust max-height for smaller screens */
-    }
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  margin:20 auto;
+  overflow: hidden;
+}
+
+/* Carousel Track Container */
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+
+  position: relative;
+  touch-action: pan-y;
+}
+
+/* Carousel Track */
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+
+/* Carousel Slides */
+.carousel-slide {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide img,
+.carousel-slide video {
+  max-height: 300px; /* Set uniform height */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Preserve aspect ratio without cropping */
+  object-position: center;
+}
+
+/* Remove margins and padding between images/videos */
+img,
+video {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+#lilli {
+  margin-top: 100px;
+  margin: auto;
+}
+
+/* Desktop View */
+@media (min-width: 601px) {
+  .carousel-slide {
+    height: auto; /* Slides adjust dynamically based on content */
   }
-  
-  @media (max-width: 600px) {
-    .carousel-slide {
-      flex: 0 0 100%; /* Each slide takes full width */
-    }
-  
-    .carousel-slide img,
-    .carousel-slide video {
-      max-height: 200px; /* Adjust max-height for mobile devices */
-      width: 100%; /* Ensure media fits the slide */
-      height: auto;
-    }
-  
-    .carousel-button {
-      padding: 10px;
-      margin: 0 25px; /* Reduce margins for smaller screens */
-    }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+
+  .carousel-slide {
+    flex: 0 0 auto; /* Each slide takes up 80% of the viewport width */
+
   }
-  
-  /* Optional: Center Media Vertically */
-  .carousel-track-container {
-    display: flex;
-    align-items: center; /* Vertically center media */
+
+  .carousel-slide img,
+  .carousel-slide video {
+    max-height: 400px;
+    height: auto;
+    width: 100%;
+    
+    object-fit: contain; /* Preserve aspect ratio without cropping */
+    object-position: center;
   }
+}
+
+/* Carousel Buttons */
+.carousel-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-button {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: none;
+  color: #4f4f4f;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 10%;
+  margin: 0 20px;
+  transition: background-color 0.2s;
+}
+
+.carousel-button:hover {
+  background-color: #3f59ffb7;
+}
+
+/* Focus Styles for Accessibility */
+.carousel-button:focus {
+  outline: 2px solid #fff;
+  transform: scale(0.90);
+}
