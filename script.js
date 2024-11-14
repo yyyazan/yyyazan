@@ -8,11 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = originalSlides.length;
   let totalSlides;
   let isTransitioning = false;
-  let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  let animationID;
-  let isDragging = false;
 
   // Clone slides to the left and right to simulate infinite scrolling
   function cloneSlides() {
@@ -108,11 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500);
     });
 
-    // Touch events for mobile devices
-    carouselContainer.addEventListener('touchstart', touchStart);
-    carouselContainer.addEventListener('touchmove', touchMove);
-    carouselContainer.addEventListener('touchend', touchEnd);
-
     carouselContainer.addEventListener('scroll', () => {
       // Update currentIndex based on scroll position
       const slides = Array.from(track.children);
@@ -135,62 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
       scrollToIndex(currentIndex, 'auto');
     });
-  }
-
-  // Touch event handlers
-  function touchStart(event) {
-    if (isTransitioning) return;
-    isDragging = true;
-    startX = event.touches[0].clientX;
-    animationID = requestAnimationFrame(animation);
-  }
-
-  function touchMove(event) {
-    if (!isDragging) return;
-    const currentX = event.touches[0].clientX;
-    const deltaX = currentX - startX;
-    currentTranslate = prevTranslate + deltaX;
-  }
-
-  function touchEnd() {
-    cancelAnimationFrame(animationID);
-    isDragging = false;
-
-    const movedBy = currentTranslate - prevTranslate;
-
-    if (movedBy < -50 && !isTransitioning) {
-      // Swiped left
-      isTransitioning = true;
-      currentIndex++;
-      scrollToIndex(currentIndex);
-      setTimeout(() => {
-        handleInfiniteScroll();
-        isTransitioning = false;
-      }, 500);
-    } else if (movedBy > 50 && !isTransitioning) {
-      // Swiped right
-      isTransitioning = true;
-      currentIndex--;
-      scrollToIndex(currentIndex);
-      setTimeout(() => {
-        handleInfiniteScroll();
-        isTransitioning = false;
-      }, 500);
-    } else {
-      // Return to original position
-      scrollToIndex(currentIndex);
-    }
-
-    prevTranslate = 0;
-    currentTranslate = 0;
-  }
-
-  function animation() {
-    if (isDragging) {
-      carouselContainer.scrollLeft -= currentTranslate - prevTranslate;
-      prevTranslate = currentTranslate;
-      requestAnimationFrame(animation);
-    }
   }
 
   initCarousel();
