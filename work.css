@@ -36,6 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: auto; 
 }
 
 .carousel-slide img,
@@ -60,29 +61,12 @@ video {
   margin: auto;
 }
 
-/* Desktop View */
-@media (min-width: 601px) {
-  .carousel-slide {
-    height: auto; /* Slides adjust dynamically based on content */
-  }
-}
-
 /* Mobile View */
 @media (max-width: 600px) {
-
-  .carousel-slide {
-    flex: 0 0 auto; /* Each slide takes up 80% of the viewport width */
-
-  }
 
   .carousel-slide img,
   .carousel-slide video {
     max-height: 400px;
-    height: auto;
-    width: 100%;
-    
-    object-fit: contain; /* Preserve aspect ratio without cropping */
-    object-position: center;
   }
 }
 
@@ -106,10 +90,4 @@ video {
 
 .carousel-button:hover {
   background-color: #3f59ffb7;
-}
-
-/* Focus Styles for Accessibility */
-.carousel-button:focus {
-  outline: 2px solid #fff;
-  transform: scale(0.90);
 }
