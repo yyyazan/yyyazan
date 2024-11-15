@@ -68,6 +68,10 @@ video {
   .carousel-slide img,
   .carousel-slide video {
     max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Preserve aspect ratio without cropping */
+    object-position: center;
   }
   .carousel-buttons-container .carousel-button:hover  {
    background-color: white;
