@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         scrollToIndex(currentIndex, 'auto');
         attachEventListeners();
-      }, 100); // Delay in milliseconds
+      }, 200); // Delay in milliseconds
     });
   }
   
