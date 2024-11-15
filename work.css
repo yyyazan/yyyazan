@@ -70,7 +70,7 @@ video {
     max-height: 400px;
     width: auto;
     height: auto;
-    object-fit: contain; /* Preserve aspect ratio without cropping */
+    object-fit: contain; 
     object-position: center;
   }
   .carousel-buttons-container .carousel-button:hover  {
