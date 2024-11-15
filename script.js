@@ -34,10 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
   function initCarousel() {
     cloneSlides();
     updateSlidePositions();
-    window.addEventListener('load', () => {
-      scrollToIndex(currentIndex, 'auto');
+    waitForImagesToLoad().then(() => {
+      // Force reflow
+      carouselContainer.offsetHeight;
+      // Add a small delay
+      setTimeout(() => {
+        scrollToIndex(currentIndex, 'auto');
+        attachEventListeners();
+      }, 100); // Delay in milliseconds
     });
-    attachEventListeners();
+  }
+  
+  
+  
+  // Function to wait for all images within the carousel to load
+  function waitForImagesToLoad() {
+    const images = track.querySelectorAll('img');
+    const promises = Array.from(images).map((img) => {
+      return new Promise((resolve) => {
+        if (img.complete) {
+          resolve();
+        } else {
+          img.onload = img.onerror = resolve;
+        }
+      });
+    });
+    return Promise.all(promises);
   }
   
 
@@ -57,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideWidth = slide.offsetWidth;
     const containerWidth = carouselContainer.offsetWidth;
     const scrollPosition = slideOffset - (containerWidth - slideWidth) / 2;
-
+  
     carouselContainer.scrollTo({
       left: scrollPosition,
       behavior: behavior,
