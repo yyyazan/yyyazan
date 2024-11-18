@@ -89,12 +89,24 @@ p {
     justify-content: center;
     align-items: center;  
     position: relative;
+    line-height: 1.5em;
 
     
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 1200px;
     
+}
+
+p a {
+  color: #3f58ff;
+  text-decoration: none;
+}
+
+
+p a:hover {
+  color: #3f58ff;
+  text-decoration: underline;
 }
 
 footer {
@@ -136,6 +148,7 @@ footer {
 
 .split-image img {
     width: auto; /* Image fills its container */
+    max-width: 100%;
     height: auto; /* Maintains aspect ratio */
 }
 
