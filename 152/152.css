@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    font-family: Garamond, serif;
+
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center;
+    position: relative;
+
+    background-color: #ffffff;
+    color: #4f4f4f;
+
+    height: 40px;
+    position: relative;
+    padding: 50px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    width: 65px; 
+    height: auto;
+    margin: 20px;
+}
+
+header h1 a {
+    color: #4f4f4f;
+    font-size: 1.7em;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    color: #3f58ff;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    font-size: 2.3em; /* Adjusted for better scaling */
+    margin-left: auto; /* Align nav to the right */
+}
+
+nav a {
+    color: #4f4f4f;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #3f58ff;
+}
+
+
+h2 {
+    color: #4f4f4f;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+h2 a {
+    color: #4f4f4f;
+}
+
+h2 a:hover {
+    color: #3f58ff;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+  }
+
+p {
+    margin: auto;
+    display: block;
+    color: #4f4f4f;
+    text-decoration: none;
+    font-size: 1.4em;
+    padding: 20px 20px;
+    justify-content: center;
+    align-items: center;  
+    position: relative;
+
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 1200px;
+    
+}
+
+footer {
+    background-color: white;
+    
+    box-shadow: 0 50vh 0 50vh #ffffff;
+
+}
+
+  img,
+  video {
+    display: block;
+    margin: auto;
+    padding: 0;
+
+    max-width: 800px;
+    max-height: 400px;
+  }
+
+
+
+
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distributes space between items */
+    
+    max-width: 1200px;
+    width: 100%;
+    margin: 0px auto;
+}
+
+/* 4. Image Section Styling */
+.split-image, .split-text {
+    flex: 1; /* Each takes up equal space */
+    padding: 20px; /* Inner padding for spacing */
+}
+
+.split-image img {
+    width: auto; /* Image fills its container */
+    height: auto; /* Maintains aspect ratio */
+}
+
+/* 5. Text Section Styling */
+.split-text {
+    display: flex;
+    flex-direction: column; /* Stacks heading and paragraphs vertically */
+    justify-content: center; /* Vertically centers text */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* caro */
+  
+  /* Carousel Container */
+  .carousel-container {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* Carousel Track Container */
+  .carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+  
+    position: relative;
+    touch-action: pan-y;
+  }
+  
+  /* Carousel Track */
+  .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+  }
+  
+  
+  /* Carousel Slides */
+  .carousel-slide {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto; 
+  }
+  
+  .carousel-slide img,
+  .carousel-slide video {
+    max-height: 300px; /* Set uniform height */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Preserve aspect ratio without cropping */
+    object-position: center;
+  }
+  
+ 
+  
+  #lilli {
+    padding-top: 100px;
+    margin: auto;
+  }
+  
+  
+  /* Carousel Buttons */
+  .carousel-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .carousel-button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: #4f4f4f;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 100%;
+    margin: 10px 70px;
+    transition: background-color 0.35s;
+  }
+  
+  .carousel-button:hover {
+    background-color: #dbdbdb;
+  }
+  
