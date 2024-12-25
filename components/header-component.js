@@ -9,14 +9,14 @@ class CustomHeader extends HTMLElement {
 
       <header>
             <div class="header-container">
-            <img src="owl.jpg" alt="owl" class="logo">
+            <img src="attachments/owl.jpg" alt="owl" class="logo">
             <h1><a href="index.html">lilli garden</a></h1>
         </div>
 
         <nav>
             <a href="about.html">about</a>
             <a href="index.html">work</a>
-            <a href="piano lesson.html">piano lesson</a>
+            <a href="piano-lesson.html">piano lesson</a>
         </nav>
     </header>
         `;
@@ -30,7 +30,7 @@ class CustomHeader extends HTMLElement {
            // Create a link element for the external CSS file
            const linkElem = document.createElement('link');
            linkElem.setAttribute('rel', 'stylesheet');
-           linkElem.setAttribute('href', 'main_style.css');
+           linkElem.setAttribute('href', "components/main_style.css");
    
            // Append the link element to the shadow DOM
            this.shadowRoot.appendChild(linkElem);
