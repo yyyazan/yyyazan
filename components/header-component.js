@@ -16,7 +16,7 @@ class CustomHeader extends HTMLElement {
         <nav>
             <a href="about.html">about</a>
             <a href="index.html">work</a>
-            <a href="piano-lesson.html">piano lesson</a>
+            <a href="https://www.lilli.garden/piano-lesson">piano lesson</a>
         </nav>
     </header>
         `;
